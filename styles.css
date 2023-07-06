@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .3s linear;
+}
+
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background: url('images/bg-desktop-dark.jpg') hsl(235, 21%, 11%) no-repeat;
+    background-size: contain;
+    min-height: 100vh;
+}
+
+body.lightmode{
+    background: url('images/bg-desktop-dark.jpg') hsl(0, 0%, 98%) no-repeat;
+    background-size: contain;
+}
+
+.todo {
+    width: 500px;
+    padding-block: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+
+.todo .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.todo .title h1 {
+    font-size: 3.5rem;
+}
+
+.todo .title i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+.todo .sub-div {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.todo .sub-div .active-input input[type=text],
+.todo .sub-div .input-container input[type=text] {
+    width: 100%;
+    height: 6rem;
+}
+
+.todo .sub-div .active-input input[type=text]:focus,
+.todo .sub-div .input-container input[type=text]:focus {
+    outline: none;
+}
+
+
+.todo .sub-div .active-input,
+.todo .sub-div .input-container .input-parent {
+    width: 100%;
+    position: relative;
+}
+
+.todo .sub-div .active-input .active-checkbox,
+.todo .sub-div .input-container .checker {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+}
+
+.todo .sub-div .active-input .fa-plus{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+    font-size: 2rem;
+    color: white;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.todo .sub-div .active-input .fa-plus.lightmode{
+    color:  hsl(235, 21%, 11%);
+}
+
+.todo .sub-div .active-input .fa-plus:hover{
+    opacity: 1;
+}
+
+.todo .sub-div .input-container .input-parent .fa-times {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+    font-size: 2rem;
+    color: white;
+    opacity: .6;
+    display: none;
+}
+
+.todo .sub-div .input-container .input-parent .fa-times.lightmode{
+    color:  hsl(235, 21%, 11%);
+}
+
+
+.todo .sub-div .input-container .input-parent:hover .fa-times{
+    display: initial;
+}
+
+.todo .sub-div .input-container .input-parent .fa-times:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+.todo .sub-div .active-input {
+    margin-bottom: 3rem;
+}
+
+.todo .sub-div .active-input input {
+    background: hsl(237, 14%, 26%);
+    border: none;
+    padding-left: 18%;
+    color: white;
+}
+
+.todo .sub-div .active-input input.lightmode{
+    background: hsl(0, 0%, 98%);
+    color:  hsl(235, 21%, 11%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.todo .sub-div .input-container .input-parent .todoInput {
+    background: hsl(237, 14%, 26%);
+    border: none;
+    border-bottom: .1rem solid grey;
+    padding-left: 18%;
+    color: white;
+    caret-color: transparent;
+    cursor: grabbing;
+}
+
+.todo .sub-div .input-container .input-parent .todoInput.active{
+    text-decoration: line-through;
+    color: grey;
+}
+
+
+.todo .sub-div .input-container .input-parent .todoInput.lightmode{
+    background: hsl(0, 0%, 98%);
+    color:  hsl(235, 21%, 11%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.todo .sub-div .functions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 10%;
+    height: 6rem;
+    background: hsl(237, 14%, 26%);
+    color: hsl(0, 0%, 98%);
+    line-height: 4rem;
+    font-size: 1.4rem;
+}
+
+
+.todo .sub-div .functions.lightmode{
+    background: hsl(0, 0%, 98%);
+    color:  hsl(235, 21%, 11%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.todo .sub-div .functions span {
+    opacity: .8;
+}
+
+.todo .sub-div .functions span:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.todo .sub-div .functions .middle {
+    display: flex;
+    gap: 1rem;
+}
+
+.todo .sub-div .functions .middle span.blue{
+    color: hsl(220, 98%, 61%);
+    font-weight: 600;
+}
+
+.todo .drag {
+    text-align: center;
+    font-size: 1.6rem;
+    color: hsl(0, 0%, 98%);
+    opacity: .6;
+}
+
+.todo .drag.lightmode{
+    color:  hsl(235, 21%, 11%);
+}
+
+.blue{
+    color: hsl(220, 98%, 61%);
+}
+
+
+
+/* ---media query-- */
+
+@media(max-width:1000px) {
+    body {
+        background: url('images/bg-mobile-dark.jpg') hsl(235, 21%, 11%) no-repeat;
+        background-size: contain;
+    }
+
+    body.lightmode{
+        background: url('images/bg-mobile-dark.jpg') hsl(0, 0%, 98%) no-repeat;
+        background-size: contain;
+    }
+
+    .todo {
+        width: 90%;
+        padding-top: 7rem;
+        padding-bottom: 15rem;
+        gap: 4rem;
+    }
+
+    .todo .sub-div .functions {
+        margin-top: 2rem;
+        font-size: 1.1rem;
+        gap: 2rem;
+        padding-inline: 8%;
+    }
+
+    .todo .title h1 {
+        font-size: 3rem;
+    }
+
+
+    .todo .sub-div .active-input .active-checkbox,
+    .todo .sub-div .input-container .checker {
+        left: 8%;
+    }
+
+
+}
